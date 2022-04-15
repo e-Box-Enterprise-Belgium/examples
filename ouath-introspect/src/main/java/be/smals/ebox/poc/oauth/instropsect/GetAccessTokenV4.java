@@ -14,7 +14,7 @@ import java.security.KeyStore;
 import java.security.Provider;
 import java.security.interfaces.RSAPrivateKey;
 
-public class GetAccessTokenV3 {
+public class GetAccessTokenV4 {
 
     public String getAccessToken(OauthConfig oauthConfig,String ...scopes){
         try {
@@ -22,10 +22,12 @@ public class GetAccessTokenV3 {
             AuthorizationGrant clientGrant = new ClientCredentialsGrant();
 
             InputStream is = this.getClass().getResourceAsStream(oauthConfig.getKeyFileLocation());
-            if(is==null)
-                is=new FileInputStream(oauthConfig.getKeyFileLocation());
-            if(is==null)
-                throw new IllegalStateException("Keystore file "+oauthConfig.getKeyFileLocation()+" could not be found");
+            if(is==null) {
+                is = new FileInputStream(oauthConfig.getKeyFileLocation());
+                if (is == null) {
+                    throw new IllegalStateException("Keystore file " + oauthConfig.getKeyFileLocation() + " could not be found");
+                }
+            }
 
             KeyStore keystore = KeyStore.getInstance("JKS");
             keystore.load(is, oauthConfig.getPassword().toCharArray());
@@ -54,7 +56,6 @@ public class GetAccessTokenV3 {
                 throw new RuntimeException(TokenErrorResponse.parse(response.toHTTPResponse()).toHTTPResponse().getStatusCode()+"\n"
                 +response.toHTTPResponse().getStatusMessage()+"\n"
                 +response.toHTTPResponse().getContent());
-
             }
 
             AccessTokenResponse successResponse = AccessTokenResponse.parse(response.toHTTPResponse());

@@ -6,17 +6,19 @@ public class LAUNCHER {
 
             @Override
             public String getOauth2V2Endpoint() {
-                return "https://services-acpt.socialsecurity.be/REST/oauth/v3";
+//                return "https://services-int.socialsecurity.be/REST/oauth/v3";  V3 IS DEPRECATED USE V4
+                return "https://services-acpt.socialsecurity.be/REST/oauth/v4";
             }
 
             @Override
             public String getAudience() {
-                return "https://oauthacc.socialsecurity.be";
+//                return "https://oauthint.socialsecurity.be"; V3 IS DEPRECATED USE V4
+                return "https://oauth-v4.acc.pub.socialsecurity.be";
             }
 
             @Override
             public OauthConfig getDocumentProviderOauthConfig() {
-                /**
+                /*
                  * The Document Provider configuration for getting a token that can perform an introspect
                  */
                 return new OauthConfig()
@@ -29,7 +31,7 @@ public class LAUNCHER {
 
             @Override
             public OauthConfig getDocumentConsumerOauthConfig() {
-                /**
+                /*
                  * The client-credential client configuration for getting a Document Consumer token that can be introspected
                  * Usually a different identity than that of the server
                  */
