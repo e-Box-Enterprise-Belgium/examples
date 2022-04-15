@@ -6,6 +6,7 @@ import com.nimbusds.oauth2.sdk.auth.*;
 import com.nimbusds.oauth2.sdk.http.HTTPRequest;
 import com.nimbusds.oauth2.sdk.id.ClientID;
 
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URI;
 import java.security.Key;
@@ -21,6 +22,10 @@ public class GetAccessTokenV3 {
             AuthorizationGrant clientGrant = new ClientCredentialsGrant();
 
             InputStream is = this.getClass().getResourceAsStream(oauthConfig.getKeyFileLocation());
+            if(is==null)
+                is=new FileInputStream(oauthConfig.getKeyFileLocation());
+            if(is==null)
+                throw new IllegalStateException("Keystore file "+oauthConfig.getKeyFileLocation()+" could not be found");
 
             KeyStore keystore = KeyStore.getInstance("JKS");
             keystore.load(is, oauthConfig.getPassword().toCharArray());
@@ -43,8 +48,6 @@ public class GetAccessTokenV3 {
 // Make the token request
             TokenRequest request = new TokenRequest(tokenEndpoint, clientAuth, clientGrant, scope);
             HTTPRequest httpRequest=request.toHTTPRequest();
-          //  System.out.println(request.toHTTPRequest());
-           // System.out.println(new ObjectMapper().writer().writeValueAsString(httpRequestrequest.toHTTPRequest()
             TokenResponse response = TokenResponse.parse(httpRequest.send());
 
             if (!response.indicatesSuccess()) {
