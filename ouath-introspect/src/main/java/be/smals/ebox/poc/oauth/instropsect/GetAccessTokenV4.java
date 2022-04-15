@@ -14,7 +14,7 @@ import java.security.KeyStore;
 import java.security.Provider;
 import java.security.interfaces.RSAPrivateKey;
 
-public class GetAccessTokenV3 {
+public class GetAccessTokenV4 {
 
     public String getAccessToken(OauthConfig oauthConfig,String ...scopes){
         try {

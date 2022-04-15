@@ -17,10 +17,10 @@ public class IntrospectPoc {
         System.out.println("Started at: "+new Date());
         try {
             // Get token for Document Provider (used fo introspect)
-            String introspectAccessToken = new GetAccessTokenV3().getAccessToken(POC_CONFIG.inst.getDocumentProviderOauthConfig(), "scope:security:authorization:oauth:oauth-autz-server:introspect");
+            String introspectAccessToken = new GetAccessTokenV4().getAccessToken(POC_CONFIG.inst.getDocumentProviderOauthConfig(), "scope:security:authorization:oauth:oauth-autz-server:introspect");
 
             // Get token for Document Consumer (used to get ebox messages)
-            String accessToken = token==null?new GetAccessTokenV3().getAccessToken(POC_CONFIG.inst.getDocumentConsumerOauthConfig(),
+            String accessToken = token==null?new GetAccessTokenV4().getAccessToken(POC_CONFIG.inst.getDocumentConsumerOauthConfig(),
                     "scope:document:management:consult:ws-eboxrestentreprise:messagesfull",
                     "scope:document:management:consult:ws-eboxrestentreprise:summaryownebox"
             ):token;
