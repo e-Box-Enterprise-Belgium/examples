@@ -1,0 +1,335 @@
+{
+	"info": {
+		"_postman_id": "dc36944b-e96b-4259-9a9e-ce9677d0c725",
+		"name": "e-Box MessageRegistry publication v3 examples",
+		"description": "e-Box message publication examples using the MessageRegistry v3.0 API.\r\nIf you want to reuse them, generate your OAuth token then go on the Authorization tab and paste the token there.\r\nPostman will put the token in Authorization header for each requests in this collection.\r\n\r\nThen edit the request body to replace the sender, senderApplicationId and messageTypeId by what you are autorized to use.\r\nIn body, put a local file as value for upfile1 and other upfile if there are several attachments.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "publication 1 file to enterprise",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f61ff12f-f787-4cd9-b583-efa24c04346a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "messageToPublish",
+							"value": "{\"sender\":{\"eboxType\":\"enterprise\",\"enterpriseNumber\":\"0123456789\"},\"recipient\":{\"eboxType\":\"enterprise\",\"enterpriseNumber\":\"0852093431\"},\"subject\":{\"fr\":\"test publication 1 file to enterprise\"},\"messageTypeId\":\"yourMessageTypeId\",\"senderApplicationId\":\"yourApplicationId\",\"attachments\":[{\"httpPartName\":\"upfile1\",\"isMainContent\":true,\"isAttachmentSigned\":false}]}",
+							"type": "text"
+						},
+						{
+							"key": "upfile1",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "{{EndpointEnterpriseMessageRegistryV3}}ebox/messages/",
+					"host": [
+						"{{EndpointEnterpriseMessageRegistryV3}}ebox"
+					],
+					"path": [
+						"messages",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "publication 1 file to enterprise + body content",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3cb96e35-b0cc-4222-9133-6cd969c01f00",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "messageToPublish",
+							"value": "{\"sender\":{\"eboxType\":\"enterprise\",\"enterpriseNumber\":\"0123456789\"},\"recipient\":{\"eboxType\":\"enterprise\",\"enterpriseNumber\":\"0852093431\"},\"subject\":{\"fr\":\"test publication 1 file + body content\"},\"messageTypeId\":\"yourMessageTypeId\",\"senderApplicationId\":\"yourApplicationId\",\"attachments\":[{\"httpPartName\":\"upfile1\",\"isMainContent\":true,\"isAttachmentSigned\":false}],\"isBodyMainContent\":false,\"bodyContent\":{\"fr\":\"Here is the body content. It is a free text that will be displayed in the recipient's e-Box in the message details page.\"}}",
+							"type": "text"
+						},
+						{
+							"key": "upfile1",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "{{EndpointEnterpriseMessageRegistryV3}}ebox/messages/",
+					"host": [
+						"{{EndpointEnterpriseMessageRegistryV3}}ebox"
+					],
+					"path": [
+						"messages",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "publication 1 file + businessData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "11fe538a-39fd-4c76-bfa4-bad5eb735246",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "messageToPublish",
+							"value": "{\"sender\":{\"eboxType\":\"enterprise\",\"enterpriseNumber\":\"0220916609\"},\"recipient\":{\"eboxType\":\"enterprise\",\"enterpriseNumber\":\"0123456789\"},\"subject\":{\"fr\":\"test publication 1 file + businessData\"},\"messageTypeId\":\"yourMessageTypeId\",\"senderApplicationId\":\"yourApplicationId\",\"attachments\":[{\"httpPartName\":\"upfile1\",\"isMainContent\":true,\"isAttachmentSigned\":false}],\"businessDataList\":[{\"key\": \"BECBE\",\"values\": [{\"nl\": \"0123456789\"},{\"nl\": \"0987654321\"}]},{\"key\":\"BCE IP\",\"values\":[{\"nl\":\"0123456789\"}]},{\"key\":\"SSCBECBE\",\"values\":[{\"nl\":\"0123456789\"}]}]}",
+							"type": "text"
+						},
+						{
+							"key": "upfile1",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "{{EndpointEnterpriseMessageRegistryV3}}ebox/messages/",
+					"host": [
+						"{{EndpointEnterpriseMessageRegistryV3}}ebox"
+					],
+					"path": [
+						"messages",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "publication 3 files to enterprise",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8db94e05-a2dc-4092-a39c-00b823e67e66",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "messageToPublish",
+							"value": "{\"sender\":{\"eboxType\":\"enterprise\",\"enterpriseNumber\":\"0123456789\"},\"recipient\":{\"eboxType\":\"enterprise\",\"enterpriseNumber\":\"0852093431\"},\"subject\":{\"fr\":\"test publication 3 documents\"},\"messageTypeId\":\"yourMessageTypeId\",\"senderApplicationId\":\"yourApplicationId\",\"attachments\":[{\"httpPartName\":\"upfile1\",\"isMainContent\":true,\"isAttachmentSigned\":false},{\"httpPartName\":\"upfile2\",\"isMainContent\":false,\"isAttachmentSigned\":false},{\"httpPartName\":\"upfile3\",\"isMainContent\":false,\"isAttachmentSigned\":false}]}",
+							"type": "text"
+						},
+						{
+							"key": "upfile1",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "upfile2",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "upfile3",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "{{EndpointEnterpriseMessageRegistryV3}}ebox/messages/",
+					"host": [
+						"{{EndpointEnterpriseMessageRegistryV3}}ebox"
+					],
+					"path": [
+						"messages",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "publication to citizen",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "57234e9f-88bc-4792-a30e-20dddcc87d7b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "messageToPublish",
+							"value": "{\"sender\":{\"eboxType\":\"enterprise\",\"enterpriseNumber\":\"0123456789\"},\"recipient\":{\"eboxType\":\"citizen\",\"ssin\":\"01010122233\"},\"subject\":{\"fr\":\"test publication 1 PDF for citizen\"},\"messageTypeId\":\"yourMessageTypeId\",\"senderApplicationId\":\"yourApplicationId\",\"attachments\":[{\"httpPartName\":\"upfile1\",\"isMainContent\":true,\"isAttachmentSigned\":false}]}",
+							"type": "text"
+						},
+						{
+							"key": "upfile1",
+							"type": "file",
+							"src": "///smals-mvm.be/data/Users/jabu/Documents/test_documents/PDFTestFile.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{EndpointEnterpriseMessageRegistryV3}}ebox/messages/",
+					"host": [
+						"{{EndpointEnterpriseMessageRegistryV3}}ebox"
+					],
+					"path": [
+						"messages",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "publication from another partition",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b36eafe-36a2-4b22-aebd-e02f8fb8f78a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "messageToPublish",
+							"value": "{\"sender\":{\"eboxType\":\"enterprise\",\"enterpriseNumber\":\"0123456789\",\"partition\":\"Another_partition\"},\"recipient\":{\"eboxType\":\"enterprise\",\"enterpriseNumber\":\"0852093431\"},\"subject\":{\"fr\":\"test publication from another partition\"},\"messageTypeId\":\"myMessageTypeId\",\"senderApplicationId\":\"myApplicationId\",\"attachments\":[{\"httpPartName\":\"upfile1\",\"isMainContent\":true,\"isAttachmentSigned\":false}],\"isReplyAuthorized\":true}",
+							"type": "text"
+						},
+						{
+							"key": "upfile1",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "{{EndpointEnterpriseMessageRegistryV3}}ebox/messages/",
+					"host": [
+						"{{EndpointEnterpriseMessageRegistryV3}}ebox"
+					],
+					"path": [
+						"messages",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{myClientTokenFromSmals}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "82b89b3b-c12c-4751-b92f-b3996d262653",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "94580b5f-dc6a-4b5f-b0f1-9a97bc1d85c6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
