@@ -41,11 +41,20 @@
 					]
 				},
 				"url": {
-					"raw": "{{EndpointEnterpriseMessageRegistryV3}}ebox/messages/",
+					"raw": "https://services-acpt.socialsecurity.be/REST/ebox/enterprise/messageRegistry/v3/ebox/messages/",
+					"protocol": "https",
 					"host": [
-						"{{EndpointEnterpriseMessageRegistryV3}}ebox"
+						"services-acpt",
+						"socialsecurity",
+						"be"
 					],
 					"path": [
+						"REST",
+						"ebox",
+						"enterprise",
+						"messageRegistry",
+						"v3",
+						"ebox",
 						"messages",
 						""
 					]
@@ -88,11 +97,20 @@
 					]
 				},
 				"url": {
-					"raw": "{{EndpointEnterpriseMessageRegistryV3}}ebox/messages/",
+					"raw": "https://services-acpt.socialsecurity.be/REST/ebox/enterprise/messageRegistry/v3/ebox/messages/",
+					"protocol": "https",
 					"host": [
-						"{{EndpointEnterpriseMessageRegistryV3}}ebox"
+						"services-acpt",
+						"socialsecurity",
+						"be"
 					],
 					"path": [
+						"REST",
+						"ebox",
+						"enterprise",
+						"messageRegistry",
+						"v3",
+						"ebox",
 						"messages",
 						""
 					]
@@ -135,11 +153,20 @@
 					]
 				},
 				"url": {
-					"raw": "{{EndpointEnterpriseMessageRegistryV3}}ebox/messages/",
+					"raw": "https://services-acpt.socialsecurity.be/REST/ebox/enterprise/messageRegistry/v3/ebox/messages/",
+					"protocol": "https",
 					"host": [
-						"{{EndpointEnterpriseMessageRegistryV3}}ebox"
+						"services-acpt",
+						"socialsecurity",
+						"be"
 					],
 					"path": [
+						"REST",
+						"ebox",
+						"enterprise",
+						"messageRegistry",
+						"v3",
+						"ebox",
 						"messages",
 						""
 					]
@@ -192,11 +219,20 @@
 					]
 				},
 				"url": {
-					"raw": "{{EndpointEnterpriseMessageRegistryV3}}ebox/messages/",
+					"raw": "https://services-acpt.socialsecurity.be/REST/ebox/enterprise/messageRegistry/v3/ebox/messages/",
+					"protocol": "https",
 					"host": [
-						"{{EndpointEnterpriseMessageRegistryV3}}ebox"
+						"services-acpt",
+						"socialsecurity",
+						"be"
 					],
 					"path": [
+						"REST",
+						"ebox",
+						"enterprise",
+						"messageRegistry",
+						"v3",
+						"ebox",
 						"messages",
 						""
 					]
@@ -234,16 +270,25 @@
 						{
 							"key": "upfile1",
 							"type": "file",
-							"src": "///smals-mvm.be/data/Users/jabu/Documents/test_documents/PDFTestFile.pdf"
+							"src": []
 						}
 					]
 				},
 				"url": {
-					"raw": "{{EndpointEnterpriseMessageRegistryV3}}ebox/messages/",
+					"raw": "https://services-acpt.socialsecurity.be/REST/ebox/enterprise/messageRegistry/v3/ebox/messages/",
+					"protocol": "https",
 					"host": [
-						"{{EndpointEnterpriseMessageRegistryV3}}ebox"
+						"services-acpt",
+						"socialsecurity",
+						"be"
 					],
 					"path": [
+						"REST",
+						"ebox",
+						"enterprise",
+						"messageRegistry",
+						"v3",
+						"ebox",
 						"messages",
 						""
 					]
@@ -286,11 +331,20 @@
 					]
 				},
 				"url": {
-					"raw": "{{EndpointEnterpriseMessageRegistryV3}}ebox/messages/",
+					"raw": "https://services-acpt.socialsecurity.be/REST/ebox/enterprise/messageRegistry/v3/ebox/messages/",
+					"protocol": "https",
 					"host": [
-						"{{EndpointEnterpriseMessageRegistryV3}}ebox"
+						"services-acpt",
+						"socialsecurity",
+						"be"
 					],
 					"path": [
+						"REST",
+						"ebox",
+						"enterprise",
+						"messageRegistry",
+						"v3",
+						"ebox",
 						"messages",
 						""
 					]
